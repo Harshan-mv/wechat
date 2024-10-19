@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select a User to Chat</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="users-container">
+    <h2>Select a User to Chat</h2>
+    <ul>
+      <% users.forEach(function(user) { %>
+        <li><a href="/chat?username=<%= user.username %>"><%= user.username %></a></li>
+      <% }); %>
+    </ul>
+    <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+  </div>
+</body>
+</html>

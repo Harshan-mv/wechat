@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages Between <%= sender %> and <%= receiver %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Messages Between <%= sender %> and <%= receiver %></h1>
+  </header>
+
+  <div class="chat-container">
+    <% if (messages.length === 0) { %>
+      <p>No messages found.</p>
+    <% } else { %>
+      <% messages.forEach(message => { %>
+        <div class="message <%= message.sender === sender ? 'sent' : 'received' %>">
+          <strong><%= message.sender %>:</strong>
+          <p><%= message.message %></p>
+          <small><%= new Date(message.timestamp).toLocaleString() %></small>
+        </div>
+      <% }); %>
+    <% } %>
+  </div>
+
+  <footer>
+    <a href="/admin" class="back-link">Back to Admin Panel</a>
+  </footer>
+</body>
+</html>

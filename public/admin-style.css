@@ -1,0 +1,98 @@
+/* Admin Dashboard Styles */
+
+.admin-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #f4f4f4;
+  }
+  
+  .form-inline {
+    display: inline;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .verify {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .verify:hover {
+    background-color: #45a049;
+  }
+  
+  .unverify {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .unverify:hover {
+    background-color: #da190b;
+  }
+  
+  .view-messages {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  .view-messages:hover {
+    background-color: #0056b3;
+  }
+  
+  .logout-form {
+    margin-top: 20px;
+  }
+  
+  .logout {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .logout:hover {
+    background-color: #c82333;
+  }
+  
+  a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

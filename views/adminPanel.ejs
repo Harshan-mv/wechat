@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="admin-container">
+    <h2>Admin Dashboard</h2>
+
+    <h3>All Registered Users</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Verified</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(function(user) { %>
+          <tr>
+            <td><%= user.username %></td>
+            <td><%= user.isVerified ? 'Yes' : 'No' %></td>
+            <td>
+              <form action="/admin/verify" method="POST" style="display:inline;">
+                <input type="hidden" name="username" value="<%= user.username %>">
+                <% if (!user.isVerified) { %>
+                  <button type="submit" name="action" value="verify">Verify</button>
+                <% } else { %>
+                  <button type="submit" name="action" value="unverify">Unverify</button>
+                <% } %>
+              </form>
+              <form action="/admin/messages" method="GET" style="display:inline;">
+                <input type="hidden" name="user1" value="<%= user.username %>">
+                <select name="user2">
+                  <% users.forEach(function(otherUser) { %>
+                    <% if (otherUser.username !== user.username) { %>
+                      <option value="<%= otherUser.username %>"><%= otherUser.username %></option>
+                    <% } %>
+                  <% }) %>
+                </select>
+                <button type="submit">View Messages</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <form action="/logout" method="POST">
+      <button type="submit">Logout</button>
+    </form>
+  </div>
+</body>
+</html>
