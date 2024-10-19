@@ -19,12 +19,12 @@ app.use(session({
   secret: 'your-secret-key',
   resave: false,
   saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }), // Use MongoDB for session storage
+  store: MongoStore.create({ mongoUrl: process.env.MONGO_URL }), // Use MongoDB for session storage
   cookie: { secure: false } // Set to true if using HTTPS
 }));
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URL, {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
