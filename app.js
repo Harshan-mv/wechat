@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 const path = require('path');
+const MongoStore = require('connect-mongo');
 
 const app = express();
 const User = require('./models/User');
@@ -15,9 +16,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.use(session({
-  secret: 'secret-key',
+  secret: 'your-secret-key',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }), // Use MongoDB for session storage
+  cookie: { secure: false } // Set to true if using HTTPS
 }));
 
 // Connect to MongoDB
